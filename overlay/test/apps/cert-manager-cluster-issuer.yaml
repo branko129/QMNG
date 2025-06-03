@@ -9,9 +9,9 @@ spec:
   project: default
 
   sources:
-#  - repoURL: https://github.com/branko129/QMNG.git
-#    targetRevision: HEAD
-#    path: overlay/dev-oci/cert-manager
+  - repoURL: https://github.com/branko129/QMNG.git
+    targetRevision: HEAD
+    path: overlay/test/cert-manager
 
   - repoURL: 'https://charts.jetstack.io'
     chart: cert-manager
