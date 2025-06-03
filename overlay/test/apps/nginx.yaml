@@ -1,0 +1,34 @@
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: defectdojo
+#   namespace: argocd
+#   finalizers:
+#     - resources-finalizer.argocd.argoproj.io
+# spec:
+#   project: default
+
+#   sources:
+
+#   - repoURL: 'https://raw.githubusercontent.com/DefectDojo/django-DefectDojo/helm-charts'
+#     chart: defectdojo
+#     targetRevision: 1.6.188
+#     helm:
+#       valueFiles:
+#       - $values/overlay/dev-oci/defectdojo/values.yaml
+
+#   - repoURL: 'https://gitlab.nortal.com/opaz/opaz-argocd-gitops.git'
+#     targetRevision: HEAD
+#     ref: values
+
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: defectdojo
+
+#   syncPolicy:
+#     syncOptions:
+#     - CreateNamespace=true
+
+#     automated:
+#       selfHeal: true
+#       prune: true
