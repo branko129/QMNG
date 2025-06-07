@@ -10,7 +10,7 @@ spec:
   tls:
   - hosts:
     - nginx.qmng.xyz
-    secretName: nginx-tls  # Optional: TLS cert secret name if using cert-manager
+    # secretName: nginx-tls  # Optional: TLS cert secret name if using cert-manager
   rules:
   - host: nginx.qmng.xyz
     http:
