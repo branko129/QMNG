@@ -1327,8 +1327,8 @@ grafana:
     ##
     tls:
     # - secretName: grafana-general-tls
-      hosts:
-      - test-grafana.qmng.xyz
+      - hosts:
+        - test-grafana.qmng.xyz
 
   # # To make Grafana persistent (Using Statefulset)
   # #
