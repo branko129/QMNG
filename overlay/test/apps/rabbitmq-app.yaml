@@ -12,7 +12,7 @@ spec:
 
   - repoURL: 'https://charts.bitnami.com/bitnami'
     chart: rabbitmq
-    targetRevision: rabbitmq
+    targetRevision: 16.0.8
     helm:
       valueFiles:
       - $values/overlay/test/rabbitmq/values.yaml
