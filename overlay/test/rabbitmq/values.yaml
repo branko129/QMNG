@@ -1274,7 +1274,7 @@ ingress:
   ingressClassName: "nginx"
   ## @param ingress.existingSecret It is you own the certificate as secret.
   ##
-  existingSecret: ""
+  existingSecret: "rabbitmq-tls-cert"
 ## Network Policies
 ## Ref: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 ##
