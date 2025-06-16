@@ -1,0 +1,36 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+
+  sources:
+
+  - repoURL: 'https://charts.bitnami.com/bitnami'
+    chart: rabbitmq
+    targetRevision: rabbitmq
+    helm:
+      valueFiles:
+      - $values/overlay/test/rabbitmq/values.yaml
+  
+
+  - repoURL: 'https://github.com/branko129/QMNG.git'
+    targetRevision: HEAD
+    ref: values
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: rabbitmq
+
+  syncPolicy:
+    syncOptions:
+    - ServerSideApply=true
+    - CreateNamespace=true
+
+    automated:
+      selfHeal: true
+      prune: true
