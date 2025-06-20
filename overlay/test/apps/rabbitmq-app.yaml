@@ -1,36 +1,36 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: rabbitmq
-  namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
-spec:
-  project: default
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: rabbitmq
+#   namespace: argocd
+#   finalizers:
+#     - resources-finalizer.argocd.argoproj.io
+# spec:
+#   project: default
 
-  sources:
+#   sources:
 
-  - repoURL: 'https://charts.bitnami.com/bitnami'
-    chart: rabbitmq
-    targetRevision: 16.0.8
-    helm:
-      valueFiles:
-      - $values/overlay/test/rabbitmq/values.yaml
+#   - repoURL: 'https://charts.bitnami.com/bitnami'
+#     chart: rabbitmq
+#     targetRevision: 16.0.8
+#     helm:
+#       valueFiles:
+#       - $values/overlay/test/rabbitmq/values.yaml
   
 
-  - repoURL: 'https://github.com/branko129/QMNG.git'
-    targetRevision: HEAD
-    ref: values
+#   - repoURL: 'https://github.com/branko129/QMNG.git'
+#     targetRevision: HEAD
+#     ref: values
 
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: rabbitmq
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: rabbitmq
 
-  syncPolicy:
-    syncOptions:
-    - ServerSideApply=true
-    - CreateNamespace=true
+#   syncPolicy:
+#     syncOptions:
+#     - ServerSideApply=true
+#     - CreateNamespace=true
 
-    automated:
-      selfHeal: true
-      prune: true
+#     automated:
+#       selfHeal: true
+#       prune: true
